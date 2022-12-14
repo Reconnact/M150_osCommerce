@@ -750,12 +750,28 @@ if ($action == 'new_product') {
             <tr>
                 <td class="main"><?php echo sprintf(TEXT_PRODUCT_MORE_INFORMATION, $pInfo->products_url); ?></td>
             </tr>
+
             <?php
         }
         ?>
         <tr>
             <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
         </tr>
+
+        <tr>
+            <td align="center" class="smallText"><?php echo sprintf(TEXT_PRODUCTS_WEIGHT_INFO) . ' ' . $pInfo->products_weight; ?></td>
+        </tr>
+        <tr>
+            <td align="center" class="smallText"><?php echo sprintf(TEXT_PRODUCTS_LENGTH_INFO) . ' ' . $pInfo->products_length; ?></td>
+        </tr>
+        <tr>
+            <td align="center" class="smallText"><?php echo sprintf(TEXT_PRODUCTS_HEIGHT_INFO) . ' ' . $pInfo->products_height; ?></td>
+        </tr>
+        <tr>
+            <td align="center" class="smallText"><?php echo sprintf(TEXT_PRODUCTS_WIDTH_INFO) . ' ' . $pInfo->products_width; ?></td>
+        </tr>
+
+
         <?php
         if ($pInfo->products_date_available > date('Y-m-d')) {
             ?>
@@ -768,6 +784,7 @@ if ($action == 'new_product') {
             <tr>
                 <td align="center" class="smallText"><?php echo sprintf(TEXT_PRODUCT_DATE_ADDED, tep_date_long($pInfo->products_date_added)); ?></td>
             </tr>
+
             <?php
         }
         ?>
@@ -827,6 +844,7 @@ if ($action == 'new_product') {
                     </tr>
                 </table></td>
         </tr>
+
         <tr>
             <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
                     <tr>
