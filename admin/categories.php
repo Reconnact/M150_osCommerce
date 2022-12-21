@@ -217,9 +217,9 @@ if (tep_not_null($action)) {
                 'products_price' => tep_db_prepare_input($HTTP_POST_VARS['products_price']),
                 'products_date_available' => $products_date_available,
                 'products_weight' => (float)tep_db_prepare_input($HTTP_POST_VARS['products_weight']),
-                'products_length' => (int)tep_db_prepare_input($HTTP_POST_VARS['products_length']),
-                'products_height' => (int)tep_db_prepare_input($HTTP_POST_VARS['products_height']),
-                'products_width' => (int)tep_db_prepare_input($HTTP_POST_VARS['products_width']),
+                'products_length' => (float)tep_db_prepare_input($HTTP_POST_VARS['products_length']),
+                'products_height' => (float)tep_db_prepare_input($HTTP_POST_VARS['products_height']),
+                'products_width' => (float)tep_db_prepare_input($HTTP_POST_VARS['products_width']),
                 'products_status' => tep_db_prepare_input($HTTP_POST_VARS['products_status']),
                 'products_tax_class_id' => tep_db_prepare_input($HTTP_POST_VARS['products_tax_class_id']),
                 'manufacturers_id' => (int)tep_db_prepare_input($HTTP_POST_VARS['manufacturers_id']));
@@ -685,15 +685,15 @@ if ($action == 'new_product') {
                     </tr>
                     <tr>
                         <td class="main"><?php echo TEXT_PRODUCTS_LENGTH; ?></td>
-                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_length', $pInfo->products_length); ?></td>
+                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_length', $pInfo->products_length, '', false, 'number', 1, 0.01); ?></td>
                     </tr>
                     <tr>
                         <td class="main"><?php echo TEXT_PRODUCTS_WIDTH; ?></td>
-                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_width', $pInfo->products_width); ?></td>
+                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_width', $pInfo->products_width, '', false, 'number', 1, 0.01); ?></td>
                     </tr>
                     <tr>
                         <td class="main"><?php echo TEXT_PRODUCTS_HEIGHT; ?></td>
-                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_height', $pInfo->products_height); ?></td>
+                        <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_height', $pInfo->products_height, '', false, 'number', 1, 0.01); ?></td>
                     </tr>
                 </table></td>
         </tr>
