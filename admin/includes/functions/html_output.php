@@ -194,7 +194,7 @@
 
 ////
 // Output a form input field
-  function tep_draw_input_field($name, $value = '', $parameters = '', $required = false, $type = 'text', $reinsert_value = true, $min = 0, $max = 9999.99, $step = "any") {
+  function tep_draw_input_field($name, $value = '', $parameters = '', $required = false, $type = 'text', $reinsert_value = true, $min = 0, $max = null, $step = "any") {
     global $HTTP_GET_VARS, $HTTP_POST_VARS;
 
     $field = '<input type="' . tep_output_string($type). '"min="' . tep_output_string($min). '"max="' . tep_output_string($max). '"step="' . tep_output_string($step)  . '" name="' . tep_output_string($name) . '" ';
