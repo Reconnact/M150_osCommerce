@@ -232,7 +232,15 @@ if (tep_not_null($action)) {
 
             if ($action == 'insert_product') {
                 $insert_sql_data = array('products_date_added' => 'now()');
-
+                if ($sql_data_array["products_length"] < 0 ) {
+                    $sql_data_array["products_length"] = $sql_data_array["products_length"] * -1;
+                }
+                if ($sql_data_array["products_width"] < 0 ) {
+                    $sql_data_array["products_width"] = $sql_data_array["products_width"] * -1;
+                }
+                if ($sql_data_array["products_height"] < 0 ) {
+                    $sql_data_array["products_height"] = $sql_data_array["products_height"] * -1;
+                }
                 $sql_data_array = array_merge($sql_data_array, $insert_sql_data);
 
                 tep_db_perform(TABLE_PRODUCTS, $sql_data_array);
@@ -241,7 +249,15 @@ if (tep_not_null($action)) {
                 tep_db_query("insert into " . TABLE_PRODUCTS_TO_CATEGORIES . " (products_id, categories_id) values ('" . (int)$products_id . "', '" . (int)$current_category_id . "')");
             } elseif ($action == 'update_product') {
                 $update_sql_data = array('products_last_modified' => 'now()');
-
+                if ($sql_data_array["products_length"] < 0 ) {
+                    $sql_data_array["products_length"] = $sql_data_array["products_length"] * -1;
+                }
+                if ($sql_data_array["products_width"] < 0 ) {
+                    $sql_data_array["products_width"] = $sql_data_array["products_width"] * -1;
+                }
+                if ($sql_data_array["products_height"] < 0 ) {
+                    $sql_data_array["products_height"] = $sql_data_array["products_height"] * -1;
+                }
                 $sql_data_array = array_merge($sql_data_array, $update_sql_data);
 
                 tep_db_perform(TABLE_PRODUCTS, $sql_data_array, 'update', "products_id = '" . (int)$products_id . "'");
@@ -1082,7 +1098,6 @@ if ($action == 'new_product') {
                                         $contents[] = array('text' => '<br />' . TEXT_PRODUCTS_PRICE_INFO . ' ' . $currencies->format($pInfo->products_price) . '<br />' . TEXT_PRODUCTS_QUANTITY_INFO . ' ' . $pInfo->products_quantity);
                                         $contents[] = array('text' => '<br />' . TEXT_PRODUCTS_AVERAGE_RATING . ' ' . number_format($pInfo->average_rating, 2) . '%');
                                         $contents[] = array('text' => '<br />' . TEXT_PRODUCTS_WEIGHT_INFO . ' ' . $pInfo->products_weight . '<br />' . TEXT_PRODUCTS_LENGTH_INFO . ' ' . $pInfo->products_length . '<br />' . TEXT_PRODUCTS_WIDTH_INFO . ' ' . $pInfo->products_width . '<br />' . TEXT_PRODUCTS_HEIGHT_INFO . ' ' . $pInfo->products_height);
-
                                     }
                                 } else { // create category/product info
                                     $heading[] = array('text' => '<strong>' . EMPTY_CATEGORY . '</strong>');

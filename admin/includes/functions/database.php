@@ -59,15 +59,6 @@
 
   function tep_db_perform($table, $data, $action = 'insert', $parameters = '', $link = 'db_link') {
     reset($data);
-    if ($data["products_length"] < 0 ) {
-      $data["products_length"] = $data["products_length"] * -1;
-    }
-    if ($data["products_width"] < 0 ) {
-      $data["products_width"] = $data["products_width"] * -1;
-    }
-    if ($data["products_height"] < 0 ) {
-      $data["products_height"] = $data["products_height"] * -1;
-    }
     if ($action == 'insert') {
       $query = 'insert into ' . $table . ' (';
       while (list($columns, ) = each($data)) {
